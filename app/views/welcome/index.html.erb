@@ -1,3 +1,7 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<%= @lat %>
+<%= @lon %>
+<%= @q %>
 <%= @response.body %>
+<div class="map">
+  <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{@lat},#{@lon}&zoom=12&size=400x400&key=AIzaSyCnRK9xxC6VN9HjugwH0IYP6MkNWKsAxEI" %>
+</div>
