@@ -1,0 +1,23 @@
+<div class="container">
+
+    <div class="row">
+                <input type="text" class="form-control" id="search" placeholder="search">
+                <button id="submit" class="btn btn-primary">search</button>
+               
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#submit").click(function () {
+             var sendeq = $.get('/search/'+ $('#search').val());
+             console.log("hello");
+        sendeq.done(function (data ) {
+            var lat = data.results[0].geometry.location.lat
+            var lon = data.results[0].geometry.location.lng
+            $("#iframe").attr("src", "https://maps.google.com/maps?q="+lat+","+lon+"&hl=es&z=3&amp&output=embed");
+        });
+        });
+       
+    });
+
+</script>
